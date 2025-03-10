@@ -1,0 +1,43 @@
+.daily-study-container {
+    padding: 2rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.daily-study-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.daily-study-language {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.daily-study-item {
+    margin-bottom: 1rem;
+}
+
+.daily-study-item h3 {
+    font-size: 1.2rem;
+    color: #c0392b;
+    margin-bottom: 0.5rem;
+}
+
+.daily-study-item a {
+    font-size: 1rem;
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.daily-study-item a:hover {
+    color: #2980b9;
+}

@@ -1,0 +1,52 @@
+/* ... (Existing CSS) ... */
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        z-index: 1001;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .dropdown-item {
+        justify-content: space-between;
+        font-size: 16px;
+    }
+
+    /* Sub-dropdowns for mobile */
+    .sub-dropdown {
+        position: static;
+        width: 100%;
+        display: none;
+        padding-left: 20px;
+    }
+
+    .dropdown-item:focus-within .sub-dropdown {
+        display: block;
+    }
+
+    .dropdown-item:focus-within .sub-dropdown {
+        display: block;
+    }
+}
