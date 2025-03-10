@@ -26,7 +26,7 @@ const MockTests = () => {
         };
 
         fetchMockTests();
-    }, [subCategoryId, navigate]); // Added navigate to dependency array
+    }, [subCategoryId, navigate]);
 
     return (
         <div className="mock-tests-container">

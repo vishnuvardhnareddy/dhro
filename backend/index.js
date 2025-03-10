@@ -3,12 +3,16 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-const OnlineCourses = require("./src/routes/OnlineCourseRoute");
-const OfflineCourses = require("./src/routes/OfflineCourseRoute");
-const DailyDose = require("./src/routes/DDRoute");
-const testSeriesRoutes = require("./src/routes/testseries.routes");
+// Import Routes
 const authRoutes = require("./src/Auth");
-const blog = require("./src/routes/blogs.routes");
+const blogRoutes = require("./src/routes/blogs.routes");
+const testSeriesRoutes = require("./src/routes/testseries.routes");
+const onlineCoursesRoutes = require("./src/routes/OnlineCourseRoute");
+const offlineCoursesRoutes = require("./src/routes/OfflineCourseRoute");
+const DailyDose = require("./src/routes/DDRoute");
+const CurrentAffair = require("./src/routes/currentaffairs")
+const Book = require("./src/routes/Bookroute")
+const dailyStudyRoutes = require("./src/routes/dailyStudy");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -24,10 +28,10 @@ const dbConnect = async () => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
-        console.log(`MongoDB Connected: ${conn.connection.host}`);
+        console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
-        console.error("Error Connecting to MongoDB:", error);
-        process.exit(1);
+        console.error("❌ Error Connecting to MongoDB:", error);
+        process.exit(1); // Stop the app if DB connection fails
     }
 };
 
@@ -35,18 +39,21 @@ dbConnect();
 
 // Default route
 app.get("/", (req, res) => {
-    res.send("Welcome to Express.js API!");
+    res.send("✅ Express.js API is Running Successfully!");
 });
 
 // Routes
 app.use("/auth", authRoutes);
-app.use("/blog", blog);
+app.use("/blog", blogRoutes);
 app.use("/api/testseries", testSeriesRoutes);
-app.use("/api/onlineCourses", OnlineCourses);
-app.use("/api/offlineCourses", OfflineCourses);
-app.use("/uploadDD", DailyDose);
+app.use("/api/onlineCourses", onlineCoursesRoutes);
+app.use("/api/offlineCourses", offlineCoursesRoutes);
+app.use("/uploadDD", DailyDose)
+app.use("/bookupload", Book)
+app.use("/ca", CurrentAffair)
+app.use('/api/dailystudy', dailyStudyRoutes);
 
 // Start Server
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`🚀 Server running at: http://localhost:${PORT}`);
 });

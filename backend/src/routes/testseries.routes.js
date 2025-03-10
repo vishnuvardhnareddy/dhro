@@ -14,6 +14,7 @@ router.post('/subcategories/', testSeriesController.createSubCategory);
 router.patch('/subcategories/:subCategoryId', testSeriesController.updateSubCategory);
 router.get('/subcategories', testSeriesController.getSubCategories);
 router.get('/subcategories/:id', testSeriesController.getSubCategoryById);
+router.get('/categories/:categoryId/subcategories', testSeriesController.getSubCategoriesByCategoryId); // New route
 router.delete('/subcategories/:id', testSeriesController.deleteSubCategory);
 
 // ------------------- MOCK TEST ROUTES -------------------

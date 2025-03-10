@@ -1,41 +1,21 @@
-/* Contactus.css */
-
-/* Reset default styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Contact Us Container */
 .contactus-container {
     padding: 2rem;
     background-color: #f9f9f9;
-    /* Light background */
     text-align: center;
 }
 
 .contactus-title {
     font-size: 2.5rem;
     color: #c0392b;
-    /* Dark red */
     margin-bottom: 0.5rem;
 }
 
 .contactus-subtitle {
     font-size: 1.5rem;
     color: #e74c3c;
-    /* Bright red */
     margin-bottom: 1rem;
 }
 
-.contactus-description {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 2rem;
-}
-
-/* Contact Content */
 .contactus-content {
     display: flex;
     flex-wrap: wrap;
@@ -46,7 +26,6 @@
     margin: 0 auto;
 }
 
-/* Contact Form */
 .contact-form {
     flex: 1;
     min-width: 300px;
@@ -75,7 +54,6 @@
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: #e74c3c;
-    /* Bright red */
     outline: none;
 }
 
@@ -85,7 +63,6 @@
 
 .submit-btn {
     background-color: #e74c3c;
-    /* Bright red */
     color: #fff;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -97,10 +74,8 @@
 
 .submit-btn:hover {
     background-color: #c0392b;
-    /* Darker red on hover */
 }
 
-/* Contact Information */
 .contact-info {
     flex: 1;
     min-width: 300px;
@@ -111,51 +86,15 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.info-title {
+.contact-info h3 {
     font-size: 1.75rem;
     color: #c0392b;
-    /* Dark red */
     margin-bottom: 1.5rem;
 }
 
-.info-item {
-    margin-bottom: 1.5rem;
-}
-
-.info-item h3 {
-    font-size: 1.25rem;
-    color: #333;
-    margin-bottom: 0.5rem;
-}
-
-.info-item p {
+.contact-info p {
     font-size: 1rem;
     color: #666;
     line-height: 1.6;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .contactus-content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .contact-form,
-    .contact-info {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .contactus-title {
-        font-size: 2rem;
-    }
-
-    .contactus-subtitle {
-        font-size: 1.25rem;
-    }
-
-    .contactus-description {
-        font-size: 0.9rem;
-    }
+    margin-bottom: 1rem;
 }

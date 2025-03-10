@@ -3,11 +3,20 @@ import { useNavigate } from "react-router-dom";
 import "./AuthPage.css";
 
 const AuthPage = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState(null);
+    const [formData, setFormData] = useState({
+        name: "",
+        emailOrPhone: "",
+        phone: "",
+        password: "",
+        // Removed state and city fields
+    });
     const [isLogin, setIsLogin] = useState(true);
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
     const handleAuth = async (e) => {
         e.preventDefault();
@@ -15,10 +24,8 @@ const AuthPage = () => {
             const url = isLogin ? "http://localhost:5000/auth/login" : "http://localhost:5000/auth/register";
             const response = await fetch(url, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email, password }),
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
             });
 
             if (!response.ok) {
@@ -28,6 +35,7 @@ const AuthPage = () => {
             const data = await response.json();
             if (isLogin) {
                 localStorage.setItem("token", data.token);
+                localStorage.setItem("name", data.name);
                 navigate("/");
             } else {
                 setIsLogin(true);
@@ -43,31 +51,26 @@ const AuthPage = () => {
                 <h2>{isLogin ? "Login" : "Register"}</h2>
                 {error && <p className="error">{error}</p>}
                 <form onSubmit={handleAuth}>
-                    <div className="auth-section">
-                        <input
-                            type="email"
-                            placeholder="Email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div className="auth-section">
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <button type="submit" className="nav-button login-btn">
-                        {isLogin ? "Login" : "Register"}
-                    </button>
+                    {!isLogin && (
+                        <>
+                            <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
+                            <input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} required />
+
+                            {/* Removed state and city selection */}
+                        </>
+                    )}
+                    <input
+                        type="text"
+                        name="emailOrPhone"
+                        placeholder={isLogin ? "Email or Phone" : "Email"}
+                        value={formData.emailOrPhone}
+                        onChange={handleChange}
+                        required
+                    />
+                    <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
+                    <button type="submit">{isLogin ? "Login" : "Register"}</button>
                 </form>
-                <button onClick={() => setIsLogin(!isLogin)} className="toggle-btn">
-                    {isLogin ? "Switch to Register" : "Switch to Login"}
-                </button>
+                <button onClick={() => setIsLogin(!isLogin)}>{isLogin ? "Switch to Register" : "Switch to Login"}</button>
             </div>
         </div>
     );

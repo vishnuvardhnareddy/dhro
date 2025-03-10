@@ -1,4 +1,4 @@
-const OnlineCourse = require('../models/onlineCourse.model');
+const OnlineCourse = require('../models/online.model');
 const OfflineCourse = require('../models/offlineCourse.model');
 
 exports.getOnlineCourses = async (req, res) => {

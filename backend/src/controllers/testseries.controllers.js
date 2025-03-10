@@ -7,6 +7,7 @@ const TestResult = require('../models/testResult.model');
 // Create a new category
 exports.createCategory = async (req, res) => {
     try {
+
         const { name, description } = req.body;
         const category = new Category({ name, description });
         await category.save();
@@ -157,6 +158,17 @@ exports.getSubCategoryById = async (req, res) => {
     }
 };
 
+// Get subcategories by category ID
+exports.getSubCategoriesByCategoryId = async (req, res) => {
+    try {
+        const { categoryId } = req.params;
+        const subCategories = await SubCategory.find({ categoryId }).populate('mockTests');
+        res.status(200).json({ success: true, data: subCategories });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+};
+
 // Delete subcategory (and all associated mock tests)
 exports.deleteSubCategory = async (req, res) => {
     try {
@@ -190,27 +202,30 @@ exports.deleteSubCategory = async (req, res) => {
 // Create a mock test under a subcategory
 exports.createMockTest = async (req, res) => {
     try {
-        const { title, description, duration, totalMarks, questions, subCategoryId } = req.body;
+        //iport data from jsnon
 
-        // Validate subCategoryId
-        if (!mongoose.Types.ObjectId.isValid(subCategoryId)) {
-            return res.status(400).json({ success: false, message: "Invalid subcategory ID" });
-        }
 
-        // Check if the subcategory exists
-        const subCategory = await SubCategory.findById(subCategoryId);
-        if (!subCategory) {
-            return res.status(404).json({ success: false, message: "Subcategory not found" });
-        }
+        // const { title, description, duration, totalMarks, questions, subCategoryId } = req.body;
 
-        // Create and save the mock test
-        const mockTest = new MockTest({ title, description, duration, totalMarks, questions });
-        await mockTest.save();
+        // // Validate subCategoryId
+        // if (!mongoose.Types.ObjectId.isValid(subCategoryId)) {
+        //     return res.status(400).json({ success: false, message: "Invalid subcategory ID" });
+        // }
 
-        // Add the mock test to the subcategory
-        await SubCategory.findByIdAndUpdate(subCategoryId, { $push: { mockTests: mockTest._id } });
+        // // Check if the subcategory exists
+        // const subCategory = await SubCategory.findById(subCategoryId);
+        // if (!subCategory) {
+        //     return res.status(404).json({ success: false, message: "Subcategory not found" });
+        // }
 
-        res.status(201).json({ success: true, data: mockTest });
+        // // Create and save the mock test
+        // const mockTest = new MockTest({ title, description, duration, totalMarks, questions });
+        // await mockTest.save();
+
+        // // Add the mock test to the subcategory
+        // await SubCategory.findByIdAndUpdate(subCategoryId, { $push: { mockTests: mockTest._id } });
+
+        // res.status(201).json({ success: true, data: mockTest });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }

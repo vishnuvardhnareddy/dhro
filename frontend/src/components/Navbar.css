@@ -1,6 +1,172 @@
-/* ... (Existing CSS) ... */
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* Responsive design */
+/* Navbar Container */
+.navbar {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove default list styles */
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove underline from links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Logo */
+.logo img {
+    height: 50px;
+    cursor: pointer;
+    filter: brightness(0) invert(1);
+}
+
+/* Menu Container */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Dropdown Icon */
+.dropdown-icon {
+    font-size: 0.8rem;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #34495e;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    min-width: 200px;
+    z-index: 1000;
+    display: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #1abc9c;
+}
+
+/* Sub-dropdown */
+.sub-dropdown {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: #34495e;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    min-width: 200px;
+    display: none;
+}
+
+.dropdown-item:hover .sub-dropdown {
+    display: block;
+}
+
+.sub-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease;
+}
+
+.sub-item:hover {
+    background-color: #1abc9c;
+}
+
+/* Buttons */
+.question-answers button,
+.login-register button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.question-answers button:hover,
+.login-register button:hover {
+    background-color: #16a085;
+}
+
+/* Google Play Image */
+.google-play img {
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.google-play img:hover {
+    transform: scale(1.1);
+}
+
+/* Icons */
+.icon {
+    font-size: 1rem;
+}
+
+/* Hamburger Menu Icon */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
     .hamburger-menu {
         display: block;
@@ -10,13 +176,11 @@
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 100%;
         left: 0;
         width: 100%;
-        background-color: white;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 10px 0;
-        z-index: 1001;
+        background-color: #2c3e50;
+        padding: 1rem;
     }
 
     .menu.active {
@@ -25,28 +189,44 @@
 
     .dropdown-menu {
         position: static;
-        width: 100%;
-        box-shadow: none;
+        display: none;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: none;
+    }
+
+    .dropdown-menu.active {
+        display: block;
     }
 
     .dropdown-item {
-        justify-content: space-between;
-        font-size: 16px;
+        padding: 0.5rem 0;
     }
 
-    /* Sub-dropdowns for mobile */
     .sub-dropdown {
         position: static;
-        width: 100%;
         display: none;
-        padding-left: 20px;
     }
 
-    .dropdown-item:focus-within .sub-dropdown {
+    .dropdown-item:hover .sub-dropdown {
+        display: none;
+    }
+
+    .sub-dropdown.active {
         display: block;
     }
 
-    .dropdown-item:focus-within .sub-dropdown {
-        display: block;
+    /* Shorter Login Button on Mobile */
+    .login-register button {
+        padding: 0.3rem 0.3rem;
+        /* Smaller padding */
+        font-size: 0.9rem;
+        /* Smaller font size */
+    }
+
+    .login-register button .icon {
+        font-size: 0.8rem;
+        /* Smaller icon size */
     }
 }
