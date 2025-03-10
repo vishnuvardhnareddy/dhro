@@ -16,6 +16,10 @@ const testResultSchema = new mongoose.Schema({
         of: String,
         required: true
     },
+    score: {
+        type: Number, // ✅ Stores the user's test score
+        required: true
+    },
     startTime: {
         type: Date,
         required: true

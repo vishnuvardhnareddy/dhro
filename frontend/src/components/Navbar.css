@@ -96,11 +96,11 @@ a {
     background-color: #1abc9c;
 }
 
-/* Sub-dropdown */
+/* Sub-dropdown Menu */
 .sub-dropdown {
     position: absolute;
-    left: 100%;
     top: 0;
+    left: 100%;
     background-color: #34495e;
     border-radius: 4px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -124,9 +124,147 @@ a {
     background-color: #1abc9c;
 }
 
+/* Profile Dropdown (Updated to match Courses Design) */
+.profile-dropdown {
+    position: relative;
+    cursor: pointer;
+    background: #34495e;
+    border-radius: 8px;
+    padding: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.profile-dropdown:hover {
+    background-color: #1abc9c;
+}
+
+.profile-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ecf0f1;
+}
+
+/* Profile Dropdown Menu */
+.profile-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #34495e;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    min-width: 200px;
+    z-index: 1000;
+    display: none;
+}
+
+.profile-dropdown:hover .profile-menu {
+    display: block;
+}
+
+.profile-item {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease;
+}
+
+.profile-item:hover {
+    background-color: #1abc9c;
+}
+
+/* Profile Sub-dropdown */
+.profile-sub-dropdown {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: #34495e;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    min-width: 200px;
+    display: none;
+}
+
+.profile-item:hover .profile-sub-dropdown {
+    display: block;
+}
+
+.profile-sub-item {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease;
+}
+
+.profile-sub-item:hover {
+    background-color: #1abc9c;
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ecf0f1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.profile-button:hover {
+    background-color: #1abc9c;
+}
+
+/* Profile Dropdown Menu */
+.profile-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #34495e;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    min-width: 200px;
+    z-index: 1000;
+    display: none;
+}
+
+.profile-dropdown:hover .profile-dropdown-menu {
+    display: block;
+}
+
+.profile-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-links li {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease;
+}
+
+.profile-links li:hover {
+    background-color: #1abc9c;
+}
+
 /* Buttons */
-.question-answers button,
-.login-register button {
+.button {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -139,8 +277,7 @@ a {
     transition: background-color 0.3s ease;
 }
 
-.question-answers button:hover,
-.login-register button:hover {
+.button:hover {
     background-color: #16a085;
 }
 
@@ -153,11 +290,6 @@ a {
 
 .google-play img:hover {
     transform: scale(1.1);
-}
-
-/* Icons */
-.icon {
-    font-size: 1rem;
 }
 
 /* Hamburger Menu Icon */
@@ -187,46 +319,43 @@ a {
         display: flex;
     }
 
-    .dropdown-menu {
+    .dropdown-menu,
+    .profile-menu {
         position: static;
         display: none;
     }
 
-    .dropdown:hover .dropdown-menu {
+    .dropdown:hover .dropdown-menu,
+    .profile-dropdown:hover .profile-menu {
         display: none;
     }
 
-    .dropdown-menu.active {
+    .dropdown-menu.active,
+    .profile-menu.active {
         display: block;
     }
 
-    .dropdown-item {
-        padding: 0.5rem 0;
+    .dropdown-item,
+    .profile-item {
+        padding: 0.75rem 0;
     }
 
-    .sub-dropdown {
+    .profile-sub-dropdown {
         position: static;
         display: none;
     }
 
-    .dropdown-item:hover .sub-dropdown {
+    .profile-item:hover .profile-sub-dropdown {
         display: none;
     }
 
-    .sub-dropdown.active {
+    .profile-sub-dropdown.active {
         display: block;
     }
 
-    /* Shorter Login Button on Mobile */
-    .login-register button {
+    /* Adjusted Login Button for Mobile */
+    .button {
         padding: 0.3rem 0.3rem;
-        /* Smaller padding */
         font-size: 0.9rem;
-        /* Smaller font size */
-    }
-
-    .login-register button .icon {
-        font-size: 0.8rem;
-        /* Smaller icon size */
     }
 }

@@ -16,10 +16,19 @@ class ErrorBoundary extends Component {
         console.error("ErrorBoundary caught an error", error, errorInfo);
     }
 
+    handleRetry = () => {
+        this.setState({ hasError: false });
+    };
+
     render() {
         if (this.state.hasError) {
             // You can render any custom fallback UI
-            return <h1>Something went wrong.</h1>;
+            return (
+                <div>
+                    <h1>Something went wrong.</h1>
+                    <button onClick={this.handleRetry}>Retry</button>
+                </div>
+            );
         }
 
         return this.props.children;

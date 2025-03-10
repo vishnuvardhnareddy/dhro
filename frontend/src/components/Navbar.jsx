@@ -6,16 +6,17 @@ import "./Navbar.css";
 
 const Navbar = () => {
     const [categories, setCategories] = useState([]);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [userData, setUserData] = useState(null);
+
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
     const [isTestSeriesDropdownOpen, setIsTestSeriesDropdownOpen] = useState(false);
     const [hoveredCategory, setHoveredCategory] = useState(null);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const dropdownRef = useRef(null);
-    const navigate = useNavigate();
-    const [isDailyStudyDropdownOpen, setIsDailyStudyDropdownOpen] = useState(false);
-    const [isMenuDropdownOpen, setIsMenuDropdownOpen] = useState(false);
-    const [userData, setUserData] = useState(null);
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+
+    const navigate = useNavigate();
+    const dropdownRef = useRef(null);
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -26,6 +27,7 @@ const Navbar = () => {
         fetchCategories();
     }, []);
 
+    // Fetch categories (Test Series)
     const fetchCategories = async () => {
         try {
             const response = await axios.get("http://localhost:5000/api/testseries/categories");
@@ -35,60 +37,40 @@ const Navbar = () => {
         }
     };
 
+    // Fetch logged-in user data
     const fetchUserData = async () => {
         try {
             const token = localStorage.getItem("token");
+            if (!token) return;
+
             const response = await axios.get("http://localhost:5000/api/users/me", {
                 headers: { Authorization: `Bearer ${token}` },
             });
+
             setUserData(response.data.data);
         } catch (error) {
             console.error("Error fetching user data:", error);
         }
     };
 
-    const handleCategoryHover = (categoryId) => {
-        setHoveredCategory(categoryId);
-    };
-
-    const handleSubCategoryClick = (subCategory) => {
-        navigate(`/testseries/${subCategory._id}`);
-    };
-
-    const handleLogin = () => {
-        navigate("/auth");
-    };
-
+    // Logout function
     const handleLogout = () => {
         localStorage.removeItem("token");
         setIsAuthenticated(false);
         navigate("/");
     };
 
-    const handleTestSeriesDropdownClick = () => {
-        setIsTestSeriesDropdownOpen(!isTestSeriesDropdownOpen);
-        setIsDailyStudyDropdownOpen(false);
+    // Toggle functions
+    const toggleDropdown = (setter) => {
         setIsMenuDropdownOpen(false);
-    };
-
-    const handleDailyStudyDropdownClick = () => {
-        setIsDailyStudyDropdownOpen(!isDailyStudyDropdownOpen);
         setIsTestSeriesDropdownOpen(false);
-        setIsMenuDropdownOpen(false);
-    };
-
-    const handleMenuDropdownClick = () => {
-        setIsMenuDropdownOpen(!isMenuDropdownOpen);
-        setIsTestSeriesDropdownOpen(false);
-        setIsDailyStudyDropdownOpen(false);
-    };
-
-    const handleProfileDropdownClick = () => {
-        setIsProfileDropdownOpen(!isProfileDropdownOpen);
+        setIsProfileDropdownOpen(false);
+        setter((prev) => !prev);
     };
 
     return (
         <nav className="navbar">
+            {/* Logo */}
             <div className="logo" onClick={() => navigate("/")}>
                 <img
                     src="https://www.thedhronas.com/_next/image?url=%2Fnext_images%2Flogo.png&w=256&q=75"
@@ -96,15 +78,18 @@ const Navbar = () => {
                 />
             </div>
 
+            {/* Mobile Menu */}
             <div className="hamburger-menu" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                 <FaBars className="icon" />
             </div>
 
+            {/* Main Menu */}
             <div className={`menu ${isMobileMenuOpen ? "active" : ""}`}>
                 {isAuthenticated ? (
                     <>
+                        {/* Courses Dropdown */}
                         <div className="dropdown">
-                            <span className="dropdown-title" onClick={() => handleMenuDropdownClick()}>
+                            <span className="dropdown-title" onClick={() => toggleDropdown(setIsMenuDropdownOpen)}>
                                 Courses <FaChevronDown className="dropdown-icon" />
                             </span>
                             {isMenuDropdownOpen && (
@@ -117,11 +102,10 @@ const Navbar = () => {
                                 </ul>
                             )}
                         </div>
-                    </>
-                ) : (
-                    <>
-                        <div className="dropdown" onClick={handleTestSeriesDropdownClick} ref={dropdownRef}>
-                            <span className="dropdown-title">
+
+                        {/* Test Series Dropdown */}
+                        <div className="dropdown">
+                            <span className="dropdown-title" onClick={() => toggleDropdown(setIsTestSeriesDropdownOpen)}>
                                 Test Series <FaChevronDown className="dropdown-icon" />
                             </span>
                             {isTestSeriesDropdownOpen && (
@@ -130,14 +114,14 @@ const Navbar = () => {
                                         <li
                                             key={category._id}
                                             className="dropdown-item"
-                                            onMouseEnter={() => handleCategoryHover(category._id)}
-                                            onMouseLeave={() => handleCategoryHover(null)}
+                                            onMouseEnter={() => setHoveredCategory(category._id)}
+                                            onMouseLeave={() => setHoveredCategory(null)}
                                         >
                                             {category.name} {category.subCategories?.length > 0 && <FaChevronDown className="sub-dropdown-icon" />}
                                             {hoveredCategory === category._id && category.subCategories?.length > 0 && (
                                                 <ul className="sub-dropdown">
                                                     {category.subCategories.map((sub) => (
-                                                        <li key={sub._id} className="sub-item" onClick={() => handleSubCategoryClick(sub)}>
+                                                        <li key={sub._id} className="sub-item" onClick={() => navigate(`/testseries/${sub._id}`)}>
                                                             {sub.name}
                                                         </li>
                                                     ))}
@@ -148,68 +132,41 @@ const Navbar = () => {
                                 </ul>
                             )}
                         </div>
-
-                        <div className="dropdown" onClick={handleDailyStudyDropdownClick}>
-                            <span className="dropdown-title">
-                                Daily Study <FaChevronDown className="dropdown-icon" />
-                            </span>
-                            {isDailyStudyDropdownOpen && (
-                                <ul className="dropdown-menu">
-                                    <li className="dropdown-item" onClick={() => navigate("/daily-study/books")}>Books</li>
-                                    <li className="dropdown-item" onClick={() => navigate("/daily-study/daily-dose")}>Daily Dose</li>
-                                    <li className="dropdown-item" onClick={() => navigate("/daily-study/current-affairs")}>Current Affairs</li>
-                                </ul>
-                            )}
-                        </div>
-
-                        <div className="dropdown" onClick={() => navigate("/online-courses")}>
-                            <span className="dropdown-title">
-                                Online Courses
-                            </span>
-                        </div>
-
+                    </>
+                ) : (
+                    <>
+                        {/* Navigation for Non-Authenticated Users */}
                         <div className="dropdown" onClick={() => navigate("/about-us")}>
-                            <span className="dropdown-title">
-                                About Us
-                            </span>
+                            <span className="dropdown-title">About Us</span>
                         </div>
 
                         <div className="dropdown" onClick={() => navigate("/contact-us")}>
-                            <span className="dropdown-title">
-                                Contact Us
-                            </span>
+                            <span className="dropdown-title">Contact Us</span>
                         </div>
                     </>
                 )}
             </div>
 
+            {/* Profile/Login Section */}
             <div className="login-register">
                 {isAuthenticated ? (
                     <div className="profile-dropdown">
-                        <button className="profile-button" onClick={handleProfileDropdownClick}>
-                            {userData?.name} <FaChevronDown className="dropdown-icon" />
+                        <button className="profile-button" onClick={() => toggleDropdown(setIsProfileDropdownOpen)}>
+                            {userData?.name} <FaUser className="icon" /> <FaChevronDown className="dropdown-icon" />
                         </button>
                         {isProfileDropdownOpen && (
-                            <div className="profile-dropdown-menu">
-                                <div className="user-info">
-                                    {userData?.email}
-                                </div>
-                                <button className="view-profile-button" onClick={() => navigate("/profile")}>
-                                    View Profile
-                                </button>
-                                <ul className="profile-links">
-                                    <li onClick={() => navigate("/profile")}>My Profile</li>
-                                    <li onClick={() => navigate("/orders")}>My Orders</li>
-                                    <li onClick={() => navigate("/address")}>Your Address</li>
-                                    <li onClick={() => navigate("/cart")}>Cart</li>
-                                    <li onClick={() => navigate("/change-password")}>Change Password</li>
-                                    <li onClick={handleLogout}>Logout</li>
-                                </ul>
-                            </div>
+                            <ul className="profile-dropdown-menu">
+                                <li className="profile-item" onClick={() => navigate("/profile")}>My Profile</li>
+                                <li className="profile-item" onClick={() => navigate("/orders")}>My Orders</li>
+                                <li className="profile-item" onClick={() => navigate("/address")}>Your Address</li>
+                                <li className="profile-item" onClick={() => navigate("/cart")}>Cart</li>
+                                <li className="profile-item" onClick={() => navigate("/change-password")}>Change Password</li>
+                                <li className="profile-item logout" onClick={handleLogout}>Logout</li>
+                            </ul>
                         )}
                     </div>
                 ) : (
-                    <button onClick={handleLogin}>
+                    <button className="login-btn" onClick={() => navigate("/auth")}>
                         <FaUser className="icon" /> Login/Register
                     </button>
                 )}

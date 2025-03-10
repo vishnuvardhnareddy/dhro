@@ -9,10 +9,11 @@ const blogRoutes = require("./src/routes/blogs.routes");
 const testSeriesRoutes = require("./src/routes/testseries.routes");
 const onlineCoursesRoutes = require("./src/routes/OnlineCourseRoute");
 const offlineCoursesRoutes = require("./src/routes/OfflineCourseRoute");
-const DailyDose = require("./src/routes/DDRoute");
-const CurrentAffair = require("./src/routes/currentaffairs")
-const Book = require("./src/routes/Bookroute")
+const dailyDoseRoutes = require("./src/routes/DDRoute");
+const currentAffairRoutes = require("./src/routes/currentaffairs");
+const bookRoutes = require("./src/routes/Bookroute");
 const dailyStudyRoutes = require("./src/routes/dailyStudy");
+const userRoutes = require("./src/routes/users");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -48,10 +49,11 @@ app.use("/blog", blogRoutes);
 app.use("/api/testseries", testSeriesRoutes);
 app.use("/api/onlineCourses", onlineCoursesRoutes);
 app.use("/api/offlineCourses", offlineCoursesRoutes);
-app.use("/uploadDD", DailyDose)
-app.use("/bookupload", Book)
-app.use("/ca", CurrentAffair)
+app.use("/uploadDD", dailyDoseRoutes);
+app.use("/bookupload", bookRoutes);
+app.use("/ca", currentAffairRoutes);
 app.use('/api/dailystudy', dailyStudyRoutes);
+app.use("/api/users", userRoutes);
 
 // Start Server
 app.listen(PORT, () => {

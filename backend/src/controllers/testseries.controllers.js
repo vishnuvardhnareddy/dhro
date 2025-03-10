@@ -202,30 +202,27 @@ exports.deleteSubCategory = async (req, res) => {
 // Create a mock test under a subcategory
 exports.createMockTest = async (req, res) => {
     try {
-        //iport data from jsnon
+        const { title, description, duration, totalMarks, questions, subCategoryId } = req.body;
 
+        // Validate subCategoryId
+        if (!mongoose.Types.ObjectId.isValid(subCategoryId)) {
+            return res.status(400).json({ success: false, message: "Invalid subcategory ID" });
+        }
 
-        // const { title, description, duration, totalMarks, questions, subCategoryId } = req.body;
+        // Check if the subcategory exists
+        const subCategory = await SubCategory.findById(subCategoryId);
+        if (!subCategory) {
+            return res.status(404).json({ success: false, message: "Subcategory not found" });
+        }
 
-        // // Validate subCategoryId
-        // if (!mongoose.Types.ObjectId.isValid(subCategoryId)) {
-        //     return res.status(400).json({ success: false, message: "Invalid subcategory ID" });
-        // }
+        // Create and save the mock test
+        const mockTest = new MockTest({ title, description, duration, totalMarks, questions });
+        await mockTest.save();
 
-        // // Check if the subcategory exists
-        // const subCategory = await SubCategory.findById(subCategoryId);
-        // if (!subCategory) {
-        //     return res.status(404).json({ success: false, message: "Subcategory not found" });
-        // }
+        // Add the mock test to the subcategory
+        await SubCategory.findByIdAndUpdate(subCategoryId, { $push: { mockTests: mockTest._id } });
 
-        // // Create and save the mock test
-        // const mockTest = new MockTest({ title, description, duration, totalMarks, questions });
-        // await mockTest.save();
-
-        // // Add the mock test to the subcategory
-        // await SubCategory.findByIdAndUpdate(subCategoryId, { $push: { mockTests: mockTest._id } });
-
-        // res.status(201).json({ success: true, data: mockTest });
+        res.status(201).json({ success: true, data: mockTest });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
@@ -275,19 +272,51 @@ exports.deleteMockTest = async (req, res) => {
 exports.submitTest = async (req, res) => {
     try {
         const { testId, answers, startTime, endTime } = req.body;
-        const userId = req.user._id; // Use req.user._id from the auth middleware
+        const userId = req.user._id; // Ensure user authentication middleware is in place
 
+        // Fetch test to get correct answers
+        const test = await MockTest.findById(testId);
+        if (!test) {
+            return res.status(404).json({ success: false, message: "Mock test not found" });
+        }
+
+        // Calculate score
+        let score = 0;
+        test.questions.forEach((question, index) => {
+            if (answers[index] === question.correctAnswer) {
+                score += question.marks || 1;
+            }
+        });
+
+        // Store test result
         const testResult = new TestResult({
             userId,
             testId,
             answers,
             startTime,
-            endTime
+            endTime,
+            score,
         });
 
         await testResult.save();
-        res.status(201).json({ success: true, message: "Test submitted successfully" });
+
+        res.status(201).json({ success: true, message: "Test submitted successfully", data: testResult });
     } catch (error) {
+        console.error("Error submitting test:", error);
+        res.status(500).json({ success: false, message: error.message });
+    }
+};
+
+exports.getUserTestResults = async (req, res) => {
+    try {
+        const userId = req.user._id; // Ensure user authentication middleware is in place
+
+        // Fetch user's test results
+        const results = await TestResult.find({ userId }).populate("testId", "title");
+
+        res.status(200).json({ success: true, data: results });
+    } catch (error) {
+        console.error("Error fetching test results:", error);
         res.status(500).json({ success: false, message: error.message });
     }
 };

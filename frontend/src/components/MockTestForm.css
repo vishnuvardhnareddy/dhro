@@ -1,0 +1,79 @@
+/* Container */
+.mock-test-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Timer */
+.timer {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+/* Question Card */
+.question-card {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Options List */
+.options-list {
+    list-style: none;
+    padding: 0;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    transition: background 0.3s ease;
+}
+
+.option:hover {
+    background: #f1f1f1;
+}
+
+.option input {
+    margin-right: 10px;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: #e74c3c;
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Loading and Error Messages */
+.loading-text,
+.error-text,
+.no-questions-text {
+    font-size: 1.2rem;
+    color: #e74c3c;
+    margin-top: 20px;
+}

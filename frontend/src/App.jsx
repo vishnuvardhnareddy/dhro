@@ -5,11 +5,14 @@ import Banner from './components/Banner';
 import Personalized from './components/Personalized';
 import "./App.css";
 import Footer from './components/Footer';
+import MyResults from "./components/MyResults";
 import Popup from './components/Popup';
 import Courses from './components/Courses';
 import About from './components/About';
 import AuthPage from './components/AuthPage';
 import MockTests from './components/MockTests';
+import MockTest from './components/MockTest';
+import MockTestForm from './components/MockTestForm';
 import TestPage from './components/TestPage';
 import OnlineCourses from './components/OnlineCourses';
 import OfflineCourses from './components/OfflineCourses';
@@ -27,6 +30,7 @@ import DailyDose from './components/DailyDose';
 import Profile from './components/Profile';
 import ChangePassword from './components/ChangePassword';
 import ErrorBoundary from './components/ErrorBoundary';
+import UserProfile from './components/UserProfile';
 
 function Home() {
   return (
@@ -70,7 +74,16 @@ function App() {
         <Routes>
           <Route path="/" element={isAuthenticated ? <LoggedInHome /> : <Home />} />
           <Route path="/auth" element={<AuthPage />} />
+
+          {/* ✅ Ensure Users Can See Mock Test Categories */}
           <Route path="/testseries/:subCategoryId" element={<MockTests />} />
+
+          {/* ✅ Ensure Users Must Be Logged in Before Taking a Mock Test */}
+          <Route path="/mocktest/:testId" element={isAuthenticated ? <MockTest /> : <Navigate to="/auth" />} />
+
+          {/* ✅ Ensure Users Must Be Logged in Before Starting the Exam */}
+          <Route path="/mocktestForm/:id" element={isAuthenticated ? <MockTestForm /> : <Navigate to="/auth" />} />
+
           <Route path="/test/:testId" element={<TestPage />} />
           <Route path="/online-courses" element={<OnlineCourses />} />
           <Route path="/offline-courses" element={<OfflineCourses />} />
@@ -85,8 +98,9 @@ function App() {
           <Route path="/daily-study/books" element={<Books />} />
           <Route path="/daily-study/daily-dose" element={<DailyDose />} />
           <Route path="/daily-study/current-affairs" element={<CurrentAffairs />} />
-          <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/auth" />} />
+          <Route path="/profile" element={isAuthenticated ? <UserProfile /> : <Navigate to="/auth" />} />
           <Route path="/change-password" element={isAuthenticated ? <ChangePassword /> : <Navigate to="/auth" />} />
+          <Route path="/my-results" element={isAuthenticated ? <MyResults /> : <Navigate to="/auth" />} />
         </Routes>
       </ErrorBoundary>
       <Footer />

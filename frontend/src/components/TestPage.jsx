@@ -9,6 +9,7 @@ const TestPage = () => {
     const [answers, setAnswers] = useState({});
     const [startTime, setStartTime] = useState(null);
     const [endTime, setEndTime] = useState(null);
+    const [timeLeft, setTimeLeft] = useState(5400); // 90 minutes in seconds
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -36,6 +37,27 @@ const TestPage = () => {
         checkLogin();
         fetchQuestions();
     }, [testId, navigate]);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTimeLeft((prevTime) => {
+                if (prevTime <= 1) {
+                    clearInterval(timer);
+                    handleSubmitTest();
+                    return 0;
+                }
+                return prevTime - 1;
+            });
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, []);
+
+    const formatTime = (seconds) => {
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    };
 
     const handleAnswerChange = (questionIndex, answer) => {
         setAnswers({ ...answers, [questionIndex]: answer });
@@ -87,7 +109,7 @@ const TestPage = () => {
         <div className="test-page-container">
             <div className="test-header">
                 <h1>{currentQuestion.mockTest}</h1>
-                <div className="timer">Time Left: 02:29:53</div>
+                <div className="timer">Time Left: {formatTime(timeLeft)}</div>
             </div>
             <div className="question-container">
                 <h2>{currentQuestionIndex + 1}. {currentQuestion.questionText}</h2>
