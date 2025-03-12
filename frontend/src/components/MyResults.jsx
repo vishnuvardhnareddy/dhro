@@ -1,69 +1,54 @@
 import React, { useState, useEffect } from "react";
-import "./MyResults.css"; // ✅ Ensure proper styling
+import { useNavigate } from "react-router-dom";
 
 const MyResults = () => {
-    const [results, setResults] = useState([]);
+    const navigate = useNavigate();
+    const [result, setResult] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchResults = async () => {
-            const token = localStorage.getItem("token");
-            if (!token) {
-                setError("You must be logged in to view your results.");
-                setLoading(false);
-                return;
-            }
+        const storedUserId = localStorage.getItem("userId");
 
+        // ✅ Redirect if userId is missing or invalid
+        if (!storedUserId || storedUserId === "null") {
+            console.error("❌ Invalid User ID. Redirecting to login.");
+            alert("Session expired. Please log in again.");
+            navigate("/auth");
+            return;
+        }
+
+        console.log("Fetching results for User ID:", storedUserId); // ✅ Debugging
+
+        const fetchResult = async () => {
             try {
-                const response = await fetch("http://localhost:5000/api/testseries/results", {
-                    headers: { "Authorization": `Bearer ${token}` },
-                });
-
-                if (!response.ok) throw new Error(`Failed to fetch results. Status: ${response.status}`);
-
+                const response = await fetch(`http://localhost:5000/api/results/${storedUserId}`);
                 const data = await response.json();
-                setResults(data.data || []);
+                console.log("Fetched Result:", data); // ✅ Debugging
+
+                if (response.ok && data.results.length > 0) {
+                    setResult(data.results[0]);
+                } else {
+                    setError("No results found.");
+                }
             } catch (error) {
-                console.error("Error fetching results:", error);
-                setError("Failed to load results. Please try again.");
+                console.error("❌ Error fetching results:", error);
+                setError("Error loading results.");
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchResults();
-    }, []);
+        fetchResult();
+    }, [navigate]);
+
+    if (loading) return <p>Loading results...</p>;
+    if (error) return <p>{error}</p>;
 
     return (
-        <div className="results-container">
-            <h2>My Test Results</h2>
-
-            {loading && <p>Loading results...</p>}
-            {error && <p className="error-text">{error}</p>}
-
-            <table className="results-table">
-                <thead>
-                    <tr>
-                        <th>Test Name</th>
-                        <th>Date</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {results.length > 0 ? (
-                        results.map((result, index) => (
-                            <tr key={index}>
-                                <td>{result.testId.title}</td>
-                                <td>{new Date(result.createdAt).toLocaleDateString()}</td>
-                                <td>{result.score}</td>
-                            </tr>
-                        ))
-                    ) : (
-                        !loading && <tr><td colSpan="3">No results found.</td></tr>
-                    )}
-                </tbody>
-            </table>
+        <div>
+            <h2>Test Results</h2>
+            <p>Score: {result.obtainedMarks} / {result.totalMarks}</p>
         </div>
     );
 };

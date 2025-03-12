@@ -1,0 +1,127 @@
+/* User Profile Dropdown Styles */
+.user-profile-dropdown {
+    position: relative;
+}
+
+.profile-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.profile-icon i {
+    font-size: 1.2rem;
+}
+
+.profile-icon:hover {
+    background-color: var(--primary-dark-color);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(67, 97, 238, 0.3);
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 280px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 200;
+    overflow: hidden;
+}
+
+.profile-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-header {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    background-color: rgba(67, 97, 238, 0.05);
+}
+
+.dropdown-header .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.dropdown-header .user-info {
+    flex: 1;
+}
+
+.dropdown-header .user-info h5 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0 0 3px;
+    color: var(--dark-color);
+}
+
+.dropdown-header .user-info p {
+    font-size: 0.75rem;
+    color: var(--gray-color);
+    margin: 0;
+}
+
+.dropdown-body {
+    padding: 15px;
+}
+
+.user-detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.user-detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    font-size: 0.8rem;
+    color: var(--gray-color);
+}
+
+.detail-value {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+/* Mobile Optimization */
+@media (max-width: 767px) {
+    .profile-dropdown {
+        width: 250px;
+        right: -50%;
+        transform: translateX(50%) translateY(10px);
+    }
+    
+    .profile-dropdown.active {
+        transform: translateX(50%) translateY(0);
+    }
+}

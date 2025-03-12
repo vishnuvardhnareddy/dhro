@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 // Import Routes
+const resultRoutes = require("./src/routes/resultRoutes");
 const authRoutes = require("./src/Auth");
 const blogRoutes = require("./src/routes/blogs.routes");
 const testSeriesRoutes = require("./src/routes/testseries.routes");
@@ -54,6 +55,7 @@ app.use("/bookupload", bookRoutes);
 app.use("/ca", currentAffairRoutes);
 app.use('/api/dailystudy', dailyStudyRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/results", resultRoutes);
 
 // Start Server
 app.listen(PORT, () => {

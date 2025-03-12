@@ -1,0 +1,250 @@
+/* Quiz Confirmation Modal Styles */
+.confirmation-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.confirmation-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.confirmation-modal {
+    width: 90%;
+    max-width: 500px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.confirmation-overlay.active .confirmation-modal {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.confirmation-header {
+    padding: 20px 25px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark-color) 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.confirmation-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.confirmation-header i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.confirmation-header .header-content {
+    display: flex;
+    align-items: center;
+}
+
+.confirmation-body {
+    padding: 25px;
+}
+
+.confirmation-body p {
+    margin: 0 0 20px;
+    font-size: 1.05rem;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.confirmation-footer {
+    padding: 20px 25px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.confirmation-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.confirm-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.confirm-btn:hover {
+    background-color: var(--primary-dark-color);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.2);
+}
+
+.cancel-btn {
+    background-color: #f1f1f1;
+    color: var(--dark-color);
+}
+
+.cancel-btn:hover {
+    background-color: #e5e5e5;
+}
+
+/* Animation for the modal */
+@keyframes modalPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.confirmation-modal.pulse {
+    animation: modalPulse 0.5s ease;
+}
+
+/* Message toast for notifications */
+.message-toast {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    background: white;
+    color: var(--dark-color);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transform: translateX(120%);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    max-width: 400px;
+}
+
+.message-toast.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.message-toast.success {
+    border-left: 5px solid var(--success-color);
+}
+
+.message-toast.error {
+    border-left: 5px solid var(--danger-color);
+}
+
+.message-toast.warning {
+    border-left: 5px solid var(--warning-color);
+}
+
+.message-toast.info {
+    border-left: 5px solid var(--primary-color);
+}
+
+.message-toast .toast-icon {
+    font-size: 1.5rem;
+}
+
+.message-toast.success .toast-icon {
+    color: var(--success-color);
+}
+
+.message-toast.error .toast-icon {
+    color: var(--danger-color);
+}
+
+.message-toast.warning .toast-icon {
+    color: var(--warning-color);
+}
+
+.message-toast.info .toast-icon {
+    color: var(--primary-color);
+}
+
+.message-toast .toast-content {
+    flex: 1;
+}
+
+.message-toast .toast-title {
+    font-weight: 600;
+    margin: 0 0 5px;
+    font-size: 1rem;
+}
+
+.message-toast .toast-message {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--gray-color);
+}
+
+.message-toast .toast-close {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--gray-color);
+    transition: color 0.3s ease;
+}
+
+.message-toast .toast-close:hover {
+    color: var(--dark-color);
+}
+
+/* Progress bar for toast */
+.message-toast .toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.message-toast .toast-progress-bar {
+    height: 100%;
+    width: 100%;
+    transform-origin: left;
+    animation: progress 5s linear forwards;
+}
+
+.message-toast.success .toast-progress-bar {
+    background-color: var(--success-color);
+}
+
+.message-toast.error .toast-progress-bar {
+    background-color: var(--danger-color);
+}
+
+.message-toast.warning .toast-progress-bar {
+    background-color: var(--warning-color);
+}
+
+.message-toast.info .toast-progress-bar {
+    background-color: var(--primary-color);
+}
+
+@keyframes progress {
+    0% { transform: scaleX(1); }
+    100% { transform: scaleX(0); }
+}

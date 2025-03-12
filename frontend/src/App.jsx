@@ -75,32 +75,41 @@ function App() {
           <Route path="/" element={isAuthenticated ? <LoggedInHome /> : <Home />} />
           <Route path="/auth" element={<AuthPage />} />
 
-          {/* ✅ Ensure Users Can See Mock Test Categories */}
+          {/* ✅ Mock Test Routes */}
           <Route path="/testseries/:subCategoryId" element={<MockTests />} />
-
-          {/* ✅ Ensure Users Must Be Logged in Before Taking a Mock Test */}
           <Route path="/mocktest/:testId" element={isAuthenticated ? <MockTest /> : <Navigate to="/auth" />} />
-
-          {/* ✅ Ensure Users Must Be Logged in Before Starting the Exam */}
           <Route path="/mocktestForm/:id" element={isAuthenticated ? <MockTestForm /> : <Navigate to="/auth" />} />
 
+          {/* ✅ Test Page */}
           <Route path="/test/:testId" element={<TestPage />} />
+
+          {/* ✅ Course Pages */}
           <Route path="/online-courses" element={<OnlineCourses />} />
           <Route path="/offline-courses" element={<OfflineCourses />} />
           <Route path="/course/:type/:courseId" element={<CourseDetail />} />
+
+          {/* ✅ My Courses */}
           <Route path="/my-courses" element={isAuthenticated ? <MyCourses /> : <Navigate to="/auth" />} />
           <Route path="/today-live-classes" element={isAuthenticated ? <TodayLiveClasses /> : <Navigate to="/auth" />} />
           <Route path="/live-courses" element={isAuthenticated ? <LiveCourses /> : <Navigate to="/auth" />} />
           <Route path="/recorded-courses" element={isAuthenticated ? <RecordedCourses /> : <Navigate to="/auth" />} />
           <Route path="/all-courses" element={isAuthenticated ? <AllCourses /> : <Navigate to="/auth" />} />
+
+          {/* ✅ Static Pages */}
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<ContactUs />} />
+
+          {/* ✅ Study Materials */}
           <Route path="/daily-study/books" element={<Books />} />
           <Route path="/daily-study/daily-dose" element={<DailyDose />} />
           <Route path="/daily-study/current-affairs" element={<CurrentAffairs />} />
+
+          {/* ✅ Profile & Settings */}
           <Route path="/profile" element={isAuthenticated ? <UserProfile /> : <Navigate to="/auth" />} />
           <Route path="/change-password" element={isAuthenticated ? <ChangePassword /> : <Navigate to="/auth" />} />
-          <Route path="/my-results" element={isAuthenticated ? <MyResults /> : <Navigate to="/auth" />} />
+
+          {/* ✅ Results Page (Ensures Navigation Works) */}
+          <Route path="/results/:userId" element={isAuthenticated ? <MyResults /> : <Navigate to="/auth" />} />
         </Routes>
       </ErrorBoundary>
       <Footer />

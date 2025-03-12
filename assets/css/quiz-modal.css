@@ -1,0 +1,927 @@
+/* Instructions Modal Styles */
+.instructions-modal .modal-content {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.instructions-modal .modal-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.instructions-modal .modal-title {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.instructions-modal .btn-close {
+    color: white;
+    opacity: 0.8;
+    filter: brightness(5);
+    padding: 0.5rem;
+    background-size: 0.8rem;
+}
+
+.instructions-modal .btn-close:hover {
+    opacity: 1;
+}
+
+.instructions-modal .modal-body {
+    padding: 20px;
+}
+
+.instructions-content {
+    color: var(--dark-color);
+}
+
+.instructions-content h4 {
+    font-size: 1.1rem;
+    margin: 20px 0 12px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.instructions-content h4:first-child {
+    margin-top: 0;
+}
+
+.instructions-content ol {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.instructions-content li {
+    margin-bottom: 8px;
+    color: var(--gray-color);
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.instructions-content li:last-child {
+    margin-bottom: 0;
+}
+
+.instructions-modal .modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.instructions-modal .modal-footer .btn {
+    min-width: 120px;
+}
+
+/* Confirmation Modal */
+.confirmation-modal .modal-content {
+    border-radius: 12px;
+    border: none;
+    overflow: hidden;
+}
+
+.confirmation-modal .modal-header {
+    background-color: var(--warning-color);
+    color: white;
+    padding: 15px 20px;
+    border-bottom: none;
+}
+
+.confirmation-modal .modal-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.confirmation-modal .modal-body i {
+    font-size: 3rem;
+    color: var(--warning-color);
+    margin-bottom: 15px;
+}
+
+.confirmation-modal .modal-body p {
+    font-size: 1rem;
+    color: var(--dark-color);
+    margin-bottom: 0;
+}
+
+.confirmation-modal .modal-footer {
+    border-top: none;
+    padding: 0 20px 20px;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Quiz Modal Styles */
+.quiz-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.quiz-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.quiz-modal.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--gray-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--dark-color);
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-section {
+    margin-bottom: 20px;
+}
+
+.modal-section:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 12px;
+}
+
+.instruction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.instruction-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.instruction-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.instruction-text {
+    flex: 1;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--gray-color);
+}
+
+.warning-box {
+    background-color: rgba(255, 193, 7, 0.1);
+    border: 1px solid #ffc107;
+    border-radius: 8px;
+    padding: 12px 15px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.warning-icon {
+    color: #ffc107;
+    font-size: 1.2rem;
+}
+
+.warning-text {
+    flex: 1;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--dark-color);
+}
+
+.summary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+.summary-label {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+}
+
+.summary-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-btn-secondary {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    color: var(--gray-color);
+}
+
+.modal-btn-secondary:hover {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.modal-btn-primary {
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: white;
+}
+
+.modal-btn-primary:hover {
+    background-color: var(--primary-dark-color);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(67, 97, 238, 0.3);
+}
+
+.modal-btn-danger {
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+    color: white;
+}
+
+.modal-btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(220, 53, 69, 0.3);
+}
+
+/* Instructions Modal */
+.instructions-list {
+    counter-reset: inst-counter;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.instruction-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.instruction-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.instruction-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(67, 97, 238, 0.1);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.instruction-number::before {
+    counter-increment: inst-counter;
+    content: counter(inst-counter);
+}
+
+.instruction-content {
+    flex: 1;
+}
+
+.instruction-content h4 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.instruction-content p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--gray-color);
+}
+
+/* Submit Test Modal */
+.submit-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    background-color: rgba(255, 152, 0, 0.1);
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.submit-warning i {
+    font-size: 1.5rem;
+    color: var(--warning-color);
+    margin-top: 3px;
+}
+
+.submit-warning-text h4 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.submit-warning-text p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--gray-color);
+}
+
+.submit-summary {
+    margin-bottom: 25px;
+}
+
+.submit-summary h4 {
+    margin: 0 0 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.summary-item {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.summary-item span:first-child {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+    margin-bottom: 5px;
+}
+
+.summary-item span:last-child {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.summary-item.answered span:last-child {
+    color: var(--success-color);
+}
+
+.summary-item.not-answered span:last-child {
+    color: var(--danger-color);
+}
+
+.summary-item.marked span:last-child {
+    color: var(--warning-color);
+}
+
+.summary-item.not-visited span:last-child {
+    color: var(--gray-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 1199px) {
+    .test-sidebar {
+        top: 90px;
+    }
+    
+    .palette-numbers {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 991px) {
+    .test-sidebar {
+        position: static;
+        margin-top: 30px;
+    }
+    
+    .strength-weakness {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .score-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .test-header {
+        padding: 10px 0;
+    }
+    
+    .test-brand h3 {
+        font-size: 1rem;
+    }
+    
+    .test-logo {
+        height: 30px;
+    }
+    
+    .timer {
+        padding: 8px 15px;
+    }
+    
+    .timer span {
+        font-size: 0.9rem;
+    }
+    
+    .test-actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .test-actions .btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .question-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .question-content {
+        font-size: 1rem;
+    }
+    
+    .option-item {
+        padding: 12px;
+    }
+    
+    .option-text label {
+        font-size: 0.9rem;
+    }
+    
+    .question-navigation .btn {
+        min-width: auto;
+        padding: 8px 12px;
+    }
+    
+    .results-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .score-circle {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .score-circle:before {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .score-value {
+        font-size: 2rem;
+    }
+    
+    .result-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .result-actions .btn {
+        width: 100%;
+    }
+    
+    .instructions-modal .modal-title {
+        font-size: 1.1rem;
+    }
+    
+    .instructions-modal .modal-body {
+        padding: 15px;
+    }
+    
+    .instructions-content h4 {
+        font-size: 1rem;
+        margin: 15px 0 10px;
+    }
+    
+    .instructions-content li {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+    }
+    
+    .confirmation-modal .modal-body i {
+        font-size: 2.5rem;
+    }
+    
+    .confirmation-modal .modal-body p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .modal-content {
+        max-width: 90%;
+        max-height: 80vh;
+        border-radius: 12px;
+    }
+    
+    .modal-header {
+        padding: 12px 15px;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .modal-close {
+        font-size: 1.3rem;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .modal-body {
+        padding: 15px;
+    }
+    
+    .modal-body p {
+        font-size: 1rem;
+    }
+    
+    .modal-body li {
+        font-size: 0.95rem;
+    }
+    
+    .modal-footer {
+        padding: 12px 15px;
+        gap: 10px;
+    }
+    
+    .modal-footer .btn {
+        min-width: 100px;
+    }
+    
+    .instruction-item {
+        gap: 12px;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+    }
+    
+    .instruction-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
+    }
+    
+    .instruction-content h4 {
+        font-size: 1rem;
+    }
+    
+    .instruction-content p {
+        font-size: 0.95rem;
+    }
+    
+    .submit-warning {
+        padding: 15px;
+        gap: 12px;
+    }
+    
+    .submit-warning i {
+        font-size: 1.3rem;
+    }
+    
+    .submit-warning-text h4 {
+        font-size: 1rem;
+    }
+    
+    .submit-warning-text p {
+        font-size: 0.95rem;
+    }
+    
+    .summary-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 575px) {
+    .test-content {
+        padding: 20px 0;
+    }
+    
+    .question-container {
+        padding: 15px;
+    }
+    
+    .palette-numbers {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .score-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .review-question-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .instructions-modal .modal-header,
+    .instructions-modal .modal-body,
+    .instructions-modal .modal-footer,
+    .confirmation-modal .modal-header,
+    .confirmation-modal .modal-body,
+    .confirmation-modal .modal-footer {
+        padding: 12px 15px;
+    }
+    
+    .instructions-content ol {
+        padding-left: 15px;
+    }
+    
+    .instructions-modal .modal-footer .btn,
+    .confirmation-modal .modal-footer .btn {
+        min-width: 100px;
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+    
+    .modal-content {
+        max-width: 95%;
+        max-height: 85vh;
+        border-radius: 10px;
+    }
+    
+    .modal-header {
+        padding: 12px 15px;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .modal-close {
+        font-size: 1.2rem;
+        width: 30px;
+        height: 30px;
+    }
+    
+    .modal-body {
+        padding: 15px;
+    }
+    
+    .modal-body p {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+    }
+    
+    .modal-body ul, .modal-body ol {
+        padding-left: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .modal-body li {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+    
+    .modal-footer {
+        padding: 12px 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .modal-footer .btn {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .modal-content {
+        width: 95%;
+        max-width: 550px;
+    }
+    
+    .modal-header {
+        padding: 12px 15px;
+    }
+    
+    .modal-title {
+        font-size: 1rem;
+    }
+    
+    .modal-body {
+        padding: 15px;
+    }
+    
+    .section-title {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+    }
+    
+    .instruction-number {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .instruction-text {
+        font-size: 0.85rem;
+    }
+    
+    .warning-box {
+        padding: 10px 12px;
+    }
+    
+    .warning-text {
+        font-size: 0.85rem;
+    }
+    
+    .modal-footer {
+        padding: 12px 15px;
+    }
+    
+    .modal-btn {
+        padding: 7px 14px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .modal-content {
+        width: 95%;
+    }
+    
+    .modal-header {
+        padding: 10px 12px;
+    }
+    
+    .modal-title {
+        font-size: 0.95rem;
+    }
+    
+    .modal-close {
+        font-size: 1.1rem;
+    }
+    
+    .modal-body {
+        padding: 12px;
+    }
+    
+    .section-title {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+    
+    .instruction-list {
+        gap: 10px;
+    }
+    
+    .instruction-item {
+        gap: 10px;
+    }
+    
+    .instruction-number {
+        width: 20px;
+        height: 20px;
+        font-size: 0.75rem;
+    }
+    
+    .instruction-text {
+        font-size: 0.8rem;
+    }
+    
+    .warning-box {
+        padding: 8px 10px;
+        border-radius: 6px;
+        gap: 10px;
+    }
+    
+    .warning-icon {
+        font-size: 1rem;
+    }
+    
+    .warning-text {
+        font-size: 0.8rem;
+    }
+    
+    .summary-item {
+        padding: 8px 0;
+    }
+    
+    .summary-label, .summary-value {
+        font-size: 0.85rem;
+    }
+    
+    .modal-footer {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+    
+    .modal-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        border-radius: 5px;
+    }
+}
