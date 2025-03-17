@@ -1,0 +1,54 @@
+{
+    "questions": [
+        {
+            "question": "Who was the first President of India?",
+            "options": [
+                "Dr. Rajendra Prasad",
+                "Dr. B.R. Ambedkar",
+                "Sardar Vallabhbhai Patel",
+                "Jawaharlal Nehru"
+            ],
+            "answer": "Dr. Rajendra Prasad"
+        },
+        {
+            "question": "Which is the longest river in India?",
+            "options": [
+                "Ganga",
+                "Yamuna",
+                "Godavari",
+                "Brahmaputra"
+            ],
+            "answer": "Ganga"
+        },
+        {
+            "question": "What is the chemical symbol of Gold?",
+            "options": [
+                "Ag",
+                "Au",
+                "Pb",
+                "Fe"
+            ],
+            "answer": "Au"
+        },
+        {
+            "question": "Which Article of the Indian Constitution deals with the Fundamental Rights?",
+            "options": [
+                "Article 12-35",
+                "Article 36-51",
+                "Article 52-78",
+                "Article 79-122"
+            ],
+            "answer": "Article 12-35"
+        },
+        {
+            "question": "Who is known as the Missile Man of India?",
+            "options": [
+                "Dr. Vikram Sarabhai",
+                "Dr. A.P.J. Abdul Kalam",
+                "Dr. Homi Bhabha",
+                "Dr. C.V. Raman"
+            ],
+            "answer": "Dr. A.P.J. Abdul Kalam"
+        }
+    ]
+}

@@ -1,0 +1,216 @@
+/* Footer Styling */
+.footer {
+    background-color: #080649;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+}
+
+/* Footer Container */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    gap: 20px; /* Reduced gap between sections */
+}
+
+/* Footer Sections */
+.footer-section {
+    flex: 1;
+    min-width: 200px; /* Reduced the min-width for better alignment */
+    margin-bottom: 20px; /* Reduced bottom margin */
+}
+
+.footer-about {
+    max-width: 300px;
+    text-align: left;
+    margin-bottom: 20px; /* Adjusted margin */
+}
+
+.footer-logo {
+    width: 120px;
+    margin-bottom: 10px; /* Reduced margin */
+}
+
+.footer-section h4 {
+    font-size: 16px; /* Reduced font size for better alignment */
+    margin-bottom: 10px; /* Reduced margin */
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 2px solid #FF9800;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Removed extra margin */
+}
+
+.footer-section ul li {
+    margin: 5px 0; /* Reduced margin */
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #bbb;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #FF9800;
+}
+
+/* Contact Section */
+.footer-contact p {
+    margin: 5px 0; /* Reduced margin */
+}
+
+.footer-contact a {
+    color: #FF9800;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+/* Social Media */
+.footer-social {
+    margin-top: 10px; /* Reduced margin */
+}
+
+.social-icon {
+    font-size: 18px; /* Reduced icon size */
+    color: #fff;
+    background: #FF9800;
+    width: 35px; /* Reduced icon size */
+    height: 35px; /* Reduced icon size */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    background: #e08700;
+}
+
+/* Newsletter Section */
+.footer-newsletter {
+    margin-top: 20px; /* Reduced margin */
+}
+
+.footer-newsletter h4 {
+    font-size: 16px; /* Reduced font size */
+    margin-bottom: 8px; /* Reduced margin */
+}
+
+.footer-newsletter form {
+    display: flex;
+    justify-content: center;
+    gap: 8px; /* Reduced gap */
+}
+
+.footer-newsletter input {
+    padding: 8px; /* Reduced padding */
+    width: 220px; /* Adjusted width */
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.footer-newsletter input:focus {
+    background-color: #fff;
+    border: 2px solid #FF9800;
+}
+
+.footer-newsletter button {
+    padding: 8px 16px; /* Reduced padding */
+    background-color: #FF9800;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.footer-newsletter button:hover {
+    background-color: #e08700;
+}
+
+/* Google Play Button */
+.footer-playstore {
+    margin-top: 15px; /* Reduced margin */
+}
+
+.footer-playstore img {
+    width: 140px; /* Reduced image size */
+    transition: transform 0.3s ease;
+}
+
+.footer-playstore img:hover {
+    transform: scale(1.1);
+}
+
+/* Copyright */
+.footer-bottom {
+    margin-top: 20px; /* Reduced margin */
+    font-size: 14px;
+    color: #bbb;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+}
+
+/* Scroll to Top Button */
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #FF9800;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.scroll-top:hover {
+    transform: scale(1.1);
+    background: #e08700;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-about {
+        text-align: center;
+    }
+
+    .footer-newsletter form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-newsletter input {
+        width: 100%;
+        max-width: 280px; /* Adjusted width */
+    }
+}

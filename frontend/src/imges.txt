@@ -1,0 +1,42 @@
+banner img:
+https://www.thedhronas.com/admin/assets/images/banner_images/Banner_1.jpeg
+https://www.thedhronas.com/admin/assets/images/banner_images/banner_laptop.png
+https://www.thedhronas.com/admin/assets/images/banner_images/TARGET_SSC_2025.png
+
+logo img:
+https://www.thedhronas.com/_next/image?url=%2Fnext_images%2Flogo.png&w=256&q=75
+
+PERSONALISED img
+https://www.thedhronas.com/_next/image?url=%2Fnext_images%2Fteam%2Ffaculty_group_left.webp&w=750&q=75
+https://www.thedhronas.com/_next/image?url=%2Fnext_images%2Fteam%2Ffaculty_group_right.webp&w=750&q=75
+
+Online Courses img:
+https://www.thedhronas.com/_next/image?url=https%3A%2F%2Fwww.thedhronas.com%2Fadmin%2Fassets%2Fimages%2Fpages%2FDESCRIPTIVE_COURSE1.png&w=828&q=75
+https://www.thedhronas.com/_next/image?url=https%3A%2F%2Fwww.thedhronas.com%2Fadmin%2Fassets%2Fimages%2Fpages%2FCOMPUTER_CLASS.png&w=828&q=75
+https://www.thedhronas.com/_next/image?url=https%3A%2F%2Fwww.thedhronas.com%2Fadmin%2Fassets%2Fimages%2Fpages%2FWBCS_MAINOPTIONAL_CLASS_(1)1.png&w=828&q=75
+https://www.thedhronas.com/_next/image?url=https%3A%2F%2Fwww.thedhronas.com%2Fadmin%2Fassets%2Fimages%2Fpages%2FATHROPOLOGY.png&w=828&q=75
+https://www.thedhronas.com/_next/image?url=https%3A%2F%2Fwww.thedhronas.com%2Fadmin%2Fassets%2Fimages%2Fpages%2FWBCS_MAINOPTIONAL_CLASS_HISTORYpng.png&w=828&q=75
+https://www.thedhronas.com/_next/image?url=https%3A%2F%2Fwww.thedhronas.com%2Fadmin%2Fassets%2Fimages%2Fpages%2FWBCS_MAINOPTIONAL_CLASS_(3).png&w=828&q=75
+https://www.thedhronas.com/_next/image?url=https%3A%2F%2Fwww.thedhronas.com%2Fadmin%2Fassets%2Fimages%2Fpages%2FSurakhya.png&w=828&q=75
+https://www.thedhronas.com/_next/image?url=https%3A%2F%2Fwww.thedhronas.com%2Fadmin%2Fassets%2Fimages%2Fpages%2FRAILWAY_GROUP_D.png&w=828&q=75
+https://www.thedhronas.com/_next/image?url=https%3A%2F%2Fwww.thedhronas.com%2Fadmin%2Fassets%2Fimages%2Fpages%2FPolity_Bengali.png&w=828&q=75
+https://www.thedhronas.com/_next/image?url=https%3A%2F%2Fwww.thedhronas.com%2Fadmin%2Fassets%2Fimages%2Fpages%2FSocio_Bengali.png&w=828&q=75
+https://www.thedhronas.com/_next/image?url=https%3A%2F%2Fwww.thedhronas.com%2Fadmin%2Fassets%2Fimages%2Fpages%2FWBCS_MAINOPTIONAL_CLASS_Geo.png&w=828&q=75
+https://www.thedhronas.com/_next/image?url=https%3A%2F%2Fwww.thedhronas.com%2Fadmin%2Fassets%2Fimages%2Fpages%2FDESCRIPTIVE_COURSE1.png&w=828&q=75
+
+Offline Courses img:
+
+https://www.thedhronas.com/_next/image?url=https%3A%2F%2Fwww.thedhronas.com%2Fadmin%2Fassets%2Fimages%2Fpages%2FBasic_Math_Bengali.png&w=828&q=75
+https://www.thedhronas.com/_next/image?url=https%3A%2F%2Fwww.thedhronas.com%2Fadmin%2Fassets%2Fimages%2Fpages%2FBASIC_MATH_CLASS.png&w=828&q=75
+
+Why The Dhronas img:
+https://www.thedhronas.com/icons/learn/img1.svg
+https://www.thedhronas.com/icons/learn/img1.svg
+
+contactus img:
+https://www.thedhronas.com/admin/assets/images/banner_images/Banner_1.jpeg
+https://www.thedhronas.com/_next/image?url=%2Fnext_images%2Fteam%2Ffaculty_group.webp&w=750&q=75
+
+hover:
+https://www.thedhronas.com/_next/image?url=%2Fnext_images%2Fcustomer%2Fimg2.png&w=1080&q=75
+https://www.thedhronas.com/_next/image?url=%2Fnext_images%2Fcustomer%2Fimg31.jpeg&w=1080&q=75

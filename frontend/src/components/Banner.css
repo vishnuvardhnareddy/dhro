@@ -1,0 +1,38 @@
+.banner-container {
+    width: 100%;
+    height: 70vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.custom-swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px) brightness(60%);
+    z-index: -1;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
+}

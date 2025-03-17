@@ -1,0 +1,115 @@
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    
+   
+    height: 100vh;
+    width: 300px;
+    margin: auto;
+   
+    
+}
+
+.registration-form {
+    margin-top: 150px;
+   
+    background-color: black;
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 30px;
+    width: 380px;
+    color: rgb(236, 15, 15);
+    text-align: center;
+   
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease-in-out;
+    margin: auto;
+    margin-bottom: 30px;
+    
+}
+
+/* Title Styling */
+h2,h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: rgb(233, 4, 4);
+    text-align: center;
+}
+
+/* Label Styling */
+label {
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    margin-top: 20px;
+    color: #eb1414;
+}
+
+/* Input Field Styling */
+input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 8px;
+    font-size: 16px;
+    outline: none;
+    background: rgba(224, 199, 199, 0.3);
+    color: #e41212;
+    transition: 0.3s;
+    ;
+}
+
+input::placeholder {
+    color: #dd1212;
+}
+
+input:focus {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #c73016;
+}
+
+/* Buy Button */
+.buy-button {
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    border: none;
+    color: rgb(14, 11, 2);
+    padding: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.buy-button:hover {
+    background: linear-gradient(to right, #ff4b2b, #ff416c);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .registration-form {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

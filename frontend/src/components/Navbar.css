@@ -1,0 +1,361 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar Container */
+.navbar {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove default list styles */
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove underline from links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Logo */
+.logo img {
+    height: 50px;
+    cursor: pointer;
+    filter: brightness(0) invert(1);
+}
+
+/* Menu Container */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Dropdown Icon */
+.dropdown-icon {
+    font-size: 0.8rem;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #34495e;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    min-width: 200px;
+    z-index: 1000;
+    display: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #1abc9c;
+}
+
+/* Sub-dropdown Menu */
+.sub-dropdown {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #34495e;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    min-width: 200px;
+    display: none;
+}
+
+.dropdown-item:hover .sub-dropdown {
+    display: block;
+}
+
+.sub-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease;
+}
+
+.sub-item:hover {
+    background-color: #1abc9c;
+}
+
+/* Profile Dropdown (Updated to match Courses Design) */
+.profile-dropdown {
+    position: relative;
+    cursor: pointer;
+    background: #34495e;
+    border-radius: 8px;
+    padding: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.profile-dropdown:hover {
+    background-color: #1abc9c;
+}
+
+.profile-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ecf0f1;
+}
+
+/* Profile Dropdown Menu */
+.profile-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #34495e;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    min-width: 200px;
+    z-index: 1000;
+    display: none;
+}
+
+.profile-dropdown:hover .profile-menu {
+    display: block;
+}
+
+.profile-item {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease;
+}
+
+.profile-item:hover {
+    background-color: #1abc9c;
+}
+
+/* Profile Sub-dropdown */
+.profile-sub-dropdown {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: #34495e;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    min-width: 200px;
+    display: none;
+}
+
+.profile-item:hover .profile-sub-dropdown {
+    display: block;
+}
+
+.profile-sub-item {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease;
+}
+
+.profile-sub-item:hover {
+    background-color: #1abc9c;
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ecf0f1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.profile-button:hover {
+    background-color: #1abc9c;
+}
+
+/* Profile Dropdown Menu */
+.profile-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #34495e;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    min-width: 200px;
+    z-index: 1000;
+    display: none;
+}
+
+.profile-dropdown:hover .profile-dropdown-menu {
+    display: block;
+}
+
+.profile-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-links li {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease;
+}
+
+.profile-links li:hover {
+    background-color: #1abc9c;
+}
+
+/* Buttons */
+.button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #16a085;
+}
+
+/* Google Play Image */
+.google-play img {
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.google-play img:hover {
+    transform: scale(1.1);
+}
+
+/* Hamburger Menu Icon */
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #2c3e50;
+        padding: 1rem;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .dropdown-menu,
+    .profile-menu {
+        position: static;
+        display: none;
+    }
+
+    .dropdown:hover .dropdown-menu,
+    .profile-dropdown:hover .profile-menu {
+        display: none;
+    }
+
+    .dropdown-menu.active,
+    .profile-menu.active {
+        display: block;
+    }
+
+    .dropdown-item,
+    .profile-item {
+        padding: 0.75rem 0;
+    }
+
+    .profile-sub-dropdown {
+        position: static;
+        display: none;
+    }
+
+    .profile-item:hover .profile-sub-dropdown {
+        display: none;
+    }
+
+    .profile-sub-dropdown.active {
+        display: block;
+    }
+
+    /* Adjusted Login Button for Mobile */
+    .button {
+        padding: 0.3rem 0.3rem;
+        font-size: 0.9rem;
+    }
+}
