@@ -80,13 +80,6 @@ const Footer = () => {
             </div>
 
             {/* Newsletter Subscription */}
-            <div className="footer-newsletter">
-                <h4>Subscribe to Our Newsletter</h4>
-                <form>
-                    <input type="email" placeholder="Enter your email" required />
-                    <button type="submit">Subscribe</button>
-                </form>
-            </div>
 
             {/* Google Play Store Button */}
             <div className="footer-playstore">
@@ -97,12 +90,6 @@ const Footer = () => {
                     />
                 </a>
             </div>
-
-            {/* Copyright Section */}
-            <div className="footer-bottom">
-                © 2024 The Dhronas Pvt. Ltd. All rights reserved.
-            </div>
-
             
         </footer>
     );

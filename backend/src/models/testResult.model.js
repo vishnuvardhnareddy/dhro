@@ -3,37 +3,40 @@ const mongoose = require('mongoose');
 const testResultSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
+        required: true,
+        ref: 'User' // if you have a User model
     },
-    testId: {
+    mockTestId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'MockTest',
-        required: true
-    },
-    answers: {
-        type: Map,
-        of: String,
-        required: true
+        required: true,
+        ref: 'MockTest'
     },
     score: {
-        type: Number, // ✅ Stores the user's test score
+        type: Number,
         required: true
     },
-    startTime: {
-        type: Date,
+    totalMarks: {
+        type: Number,
         required: true
     },
-    endTime: {
-        type: Date,
-        required: true
-    },
+    answers: [{
+        questionId: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true
+        },
+        selectedOption: {
+            type: String,
+            required: true
+        },
+        isCorrect: {
+            type: Boolean,
+            required: true
+        }
+    }],
     createdAt: {
         type: Date,
         default: Date.now
     }
 });
 
-const TestResult = mongoose.model('TestResult', testResultSchema);
-
-module.exports = TestResult;
+module.exports = mongoose.model('TestResult', testResultSchema);

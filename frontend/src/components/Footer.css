@@ -1,7 +1,7 @@
 /* Footer Styling */
 .footer {
-    background-color: #080649;
-    color: #fff;
+    background-color: #caf0f8;
+    color: #03045e;
     padding: 40px 20px;
     text-align: center;
     position: relative;
@@ -14,30 +14,37 @@
     justify-content: space-between;
     max-width: 1200px;
     margin: auto;
-    gap: 20px; /* Reduced gap between sections */
+    gap: 20px;
+    /* Reduced gap between sections */
 }
 
 /* Footer Sections */
 .footer-section {
     flex: 1;
-    min-width: 200px; /* Reduced the min-width for better alignment */
-    margin-bottom: 20px; /* Reduced bottom margin */
+    min-width: 200px;
+    /* Reduced the min-width for better alignment */
+    margin-bottom: 20px;
+    /* Reduced bottom margin */
 }
 
 .footer-about {
     max-width: 300px;
     text-align: left;
-    margin-bottom: 20px; /* Adjusted margin */
+    margin-bottom: 20px;
+    /* Adjusted margin */
 }
 
 .footer-logo {
     width: 120px;
-    margin-bottom: 10px; /* Reduced margin */
+    margin-bottom: 10px;
+    /* Reduced margin */
 }
 
 .footer-section h4 {
-    font-size: 16px; /* Reduced font size for better alignment */
-    margin-bottom: 10px; /* Reduced margin */
+    font-size: 16px;
+    /* Reduced font size for better alignment */
+    margin-bottom: 10px;
+    /* Reduced margin */
     text-transform: uppercase;
     font-weight: bold;
     border-bottom: 2px solid #FF9800;
@@ -48,11 +55,13 @@
 .footer-section ul {
     list-style: none;
     padding: 0;
-    margin: 0; /* Removed extra margin */
+    margin: 0;
+    /* Removed extra margin */
 }
 
 .footer-section ul li {
-    margin: 5px 0; /* Reduced margin */
+    margin: 5px 0;
+    /* Reduced margin */
 }
 
 .footer-section ul li a {
@@ -62,16 +71,17 @@
 }
 
 .footer-section ul li a:hover {
-    color: #FF9800;
+    color: #03045e;
 }
 
 /* Contact Section */
 .footer-contact p {
-    margin: 5px 0; /* Reduced margin */
+    margin: 5px 0;
+    /* Reduced margin */
 }
 
 .footer-contact a {
-    color: #FF9800;
+    color: #03045e;
     text-decoration: none;
     font-weight: bold;
 }
@@ -82,21 +92,24 @@
 
 /* Social Media */
 .footer-social {
-    margin-top: 10px; /* Reduced margin */
+    margin-top: 10px;
+    /* Reduced margin */
 }
 
 .social-icon {
-    font-size: 18px; /* Reduced icon size */
+    font-size: 18px;
+    /* Reduced icon size */
     color: #fff;
-    background: #FF9800;
-    width: 35px; /* Reduced icon size */
-    height: 35px; /* Reduced icon size */
+    background-color: #03045e;
+    width: 35px;
+    /* Reduced icon size */
+    height: 35px;
+    /* Reduced icon size */
     display: inline-flex;
     align-items: center;
     justify-content: center;
     margin: 5px;
     border-radius: 50%;
-    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .social-icon:hover {
@@ -106,23 +119,29 @@
 
 /* Newsletter Section */
 .footer-newsletter {
-    margin-top: 20px; /* Reduced margin */
+    margin-top: 20px;
+    /* Reduced margin */
 }
 
 .footer-newsletter h4 {
-    font-size: 16px; /* Reduced font size */
-    margin-bottom: 8px; /* Reduced margin */
+    font-size: 16px;
+    /* Reduced font size */
+    margin-bottom: 8px;
+    /* Reduced margin */
 }
 
 .footer-newsletter form {
     display: flex;
     justify-content: center;
-    gap: 8px; /* Reduced gap */
+    gap: 8px;
+    /* Reduced gap */
 }
 
 .footer-newsletter input {
-    padding: 8px; /* Reduced padding */
-    width: 220px; /* Adjusted width */
+    padding: 8px;
+    /* Reduced padding */
+    width: 220px;
+    /* Adjusted width */
     border: none;
     border-radius: 5px;
     outline: none;
@@ -135,7 +154,8 @@
 }
 
 .footer-newsletter button {
-    padding: 8px 16px; /* Reduced padding */
+    padding: 8px 16px;
+    /* Reduced padding */
     background-color: #FF9800;
     border: none;
     color: white;
@@ -151,11 +171,13 @@
 
 /* Google Play Button */
 .footer-playstore {
-    margin-top: 15px; /* Reduced margin */
+    margin-top: 15px;
+    /* Reduced margin */
 }
 
 .footer-playstore img {
-    width: 140px; /* Reduced image size */
+    width: 140px;
+    /* Reduced image size */
     transition: transform 0.3s ease;
 }
 
@@ -165,7 +187,8 @@
 
 /* Copyright */
 .footer-bottom {
-    margin-top: 20px; /* Reduced margin */
+    margin-top: 20px;
+    /* Reduced margin */
     font-size: 14px;
     color: #bbb;
     border-top: 1px solid #333;
@@ -211,6 +234,7 @@
 
     .footer-newsletter input {
         width: 100%;
-        max-width: 280px; /* Adjusted width */
+        max-width: 280px;
+        /* Adjusted width */
     }
 }

@@ -2,6 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const resultRoutes = require('./src/routes/resultRoutes'); // adjust path
+
 
 // Import Routes
 const authRoutes = require("./src/Auth");
@@ -54,6 +56,7 @@ app.use("/bookupload", bookRoutes);
 app.use("/ca", currentAffairRoutes);
 app.use('/api/dailystudy', dailyStudyRoutes);
 app.use("/api/users", userRoutes);
+app.use('/api/results', resultRoutes);
 
 // Start Server
 app.listen(PORT, () => {

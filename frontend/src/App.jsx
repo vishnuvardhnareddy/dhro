@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Banner from './components/Banner';
-import Personalized from './components/Personalized';
+// import Personalized from './components/Personalized';
 import "./App.css";
+import UserResults from './components/UserResults';
 import Footer from './components/Footer';
 import MyResults from "./components/MyResults";
 import Popup from './components/Popup';
@@ -11,8 +12,8 @@ import Courses from './components/Courses';
 import About from './components/About';
 import AuthPage from './components/AuthPage';
 import MockTests from './components/MockTests';
-import MockTest from './components/MockTest';
-import MockTestForm from './components/MockTestForm';
+// import MockTest from './components/MockTest';
+import MockTestForm from './components/MocktestForm';
 import TestPage from './components/TestPage';
 import OnlineCourses from './components/OnlineCourses';
 import OfflineCourses from './components/OfflineCourses';
@@ -38,7 +39,6 @@ function Home() {
   return (
     <>
       <Banner />
-      <Personalized />
       <Courses />
       <OnlineCourses />
       <OfflineCourses />
@@ -50,7 +50,7 @@ function Home() {
 function LoggedInHome() {
   return (
     <>
-      <Banner />
+      {/* <Banner /> */}
       <MyCourses />
       <TodayLiveClasses />
       <LiveCourses />
@@ -76,13 +76,13 @@ function App() {
         <Routes>
           <Route path="/" element={isAuthenticated ? <LoggedInHome /> : <Home />} />
           <Route path="/auth" element={<AuthPage />} />
-         
+
 
           {/* ✅ Ensure Users Can See Mock Test Categories */}
           <Route path="/testseries/:subCategoryId" element={<MockTests />} />
 
           {/* ✅ Ensure Users Must Be Logged in Before Taking a Mock Test */}
-          <Route path="/mocktest/:testId" element={isAuthenticated ? <MockTest /> : <Navigate to="/auth" />} />
+          {/* <Route path="/mocktest/:testId" element={isAuthenticated ? <MockTest /> : <Navigate to="/auth" />} /> */}
 
           {/* ✅ Ensure Users Must Be Logged in Before Starting the Exam */}
           <Route path="/mocktestForm/:id" element={isAuthenticated ? <MockTestForm /> : <Navigate to="/auth" />} />
@@ -104,7 +104,8 @@ function App() {
           <Route path="/profile" element={isAuthenticated ? <UserProfile /> : <Navigate to="/auth" />} />
           <Route path="/change-password" element={isAuthenticated ? <ChangePassword /> : <Navigate to="/auth" />} />
           <Route path="/my-results" element={isAuthenticated ? <MyResults /> : <Navigate to="/auth" />} />
-          <Route path="/enroll" element={<Enroll/>} />
+          <Route path="/results/:userId" element={<UserResults />} />
+          <Route path="/enroll" element={<Enroll />} />
         </Routes>
       </ErrorBoundary>
       <Footer />
