@@ -91,7 +91,12 @@ const MockTestForm = () => {
     const submitTest = async () => {
         const token = localStorage.getItem("token");
         const userId = localStorage.getItem("userId");
+        if (userId === "undefined") {
+            alert("User ID not found in localStorage");
+            console.log(token);
+            return;
 
+        }
         try {
             const response = await axios.post("http://localhost:5000/api/results/submit",
                 {
@@ -108,8 +113,9 @@ const MockTestForm = () => {
                     }
                 }
             );
+            console.log(response);
 
-            if (response.data.message) {
+            if (response.data.data.score) {
                 navigate(`/results/${userId}`);
             }
         } catch (error) {

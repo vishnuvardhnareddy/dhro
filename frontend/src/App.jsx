@@ -24,7 +24,7 @@ import LiveCourses from './components/LiveCourses';
 import RecordedCourses from './components/RecordedCourses';
 import AllCourses from './components/AllCourses';
 import AboutUs from './components/AboutUs';
-import ContactUs from './components/ContactUs';
+import ContactUs from './components/Contactus';
 import Books from './components/Book';
 import CurrentAffairs from './components/CurrentAffairs';
 import DailyDose from './components/DailyDose';

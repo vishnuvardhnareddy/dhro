@@ -40,8 +40,11 @@ const AuthPage = () => {
             }
 
             if (isLogin) {
+                console.log(data);
+
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("name", data.name);
+                localStorage.setItem("userId", data.userId);
                 navigate("/");
                 window.location.reload();
             } else {

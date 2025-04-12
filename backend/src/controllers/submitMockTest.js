@@ -1,11 +1,11 @@
 const TestResult = require('../models/testResult.model');
 const MockTest = require('../models/testseries.models').MockTest;
 
-exports.submitMockTest = async (req, res) => {
+const submitMockTest = async (req, res) => {
     try {
-        const { userId, mockTestId, answers } = req.body;
+        const { userId, testId, answers } = req.body;
 
-        const mockTest = await MockTest.findById(mockTestId);
+        const mockTest = await MockTest.findById(testId);
         if (!mockTest) {
             return res.status(404).json({ success: false, message: "Mock Test not found" });
         }
@@ -13,27 +13,28 @@ exports.submitMockTest = async (req, res) => {
         let score = 0;
         const resultAnswers = [];
 
-        for (let answer of answers) {
-            const question = mockTest.questions.id(answer.questionId);
-            if (!question) continue;
-
-            const isCorrect = question.correctAnswer === answer.selectedOption;
+        mockTest.questions.forEach((question, index) => {
+            const selectedOption = answers[index];
+            const isCorrect = question.correctAnswer === selectedOption;
             if (isCorrect) score += question.marks;
 
             resultAnswers.push({
-                questionId: answer.questionId,
-                selectedOption: answer.selectedOption,
+                questionId: question._id,
+                selectedOption,
                 isCorrect
             });
-        }
+        });
+
 
         const result = new TestResult({
             userId,
-            mockTestId,
+            mockTestId: testId,
             score,
             totalMarks: mockTest.totalMarks,
             answers: resultAnswers
         });
+
+        // console.log(userId);
 
         await result.save();
         res.status(201).json({ success: true, data: result });
@@ -41,3 +42,6 @@ exports.submitMockTest = async (req, res) => {
         res.status(500).json({ success: false, message: error.message });
     }
 };
+
+// 👇 Correct way to export
+exports.submitMockTest = submitMockTest;
