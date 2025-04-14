@@ -113,9 +113,9 @@ const MockTestForm = () => {
                     }
                 }
             );
-            console.log(response);
+            console.log(response.data.success);
 
-            if (response.data.data.score) {
+            if (response.data.success) {
                 navigate(`/results/${userId}`);
             }
         } catch (error) {
